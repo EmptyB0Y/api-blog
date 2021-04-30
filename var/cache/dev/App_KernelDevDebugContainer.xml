@@ -261,7 +261,7 @@
     <parameter key="api_platform.eager_loading.enabled">true</parameter>
     <parameter key="api_platform.eager_loading.max_joins">30</parameter>
     <parameter key="api_platform.eager_loading.fetch_partial">false</parameter>
-    <parameter key="api_platform.eager_loading.force_eager">true</parameter>
+    <parameter key="api_platform.eager_loading.force_eager">false</parameter>
     <parameter key="api_platform.collection.exists_parameter_name">exists</parameter>
     <parameter key="api_platform.collection.order">ASC</parameter>
     <parameter key="api_platform.collection.order_parameter_name">order</parameter>
@@ -347,6 +347,10 @@
       <argument type="service" id="slugger"/>
     </service>
     <service id="App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -3052,7 +3056,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.QPFo7No"/>
+      <argument type="service" id=".service_locator.f_eT530"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4225,7 +4229,7 @@
       <argument type="service" id="api_platform.metadata.property.metadata_factory.cached"/>
       <argument type="service" id="api_platform.metadata.resource.metadata_factory.cached"/>
       <argument>30</argument>
-      <argument>true</argument>
+      <argument>false</argument>
       <argument>null</argument>
       <argument>null</argument>
       <argument>false</argument>
@@ -4239,7 +4243,7 @@
     <service id="api_platform.doctrine.orm.query_extension.filter_eager_loading" class="ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\FilterEagerLoadingExtension">
       <tag name="api_platform.doctrine.orm.query_extension.collection" priority="-17"/>
       <argument type="service" id="api_platform.metadata.resource.metadata_factory.cached"/>
-      <argument>true</argument>
+      <argument>false</argument>
       <argument type="service" id="api_platform.resource_class_resolver"/>
     </service>
     <service id="api_platform.doctrine.orm.query_extension.pagination" class="ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\PaginationExtension">
@@ -4502,6 +4506,8 @@
     <service id=".abstract.instanceof.App\DataPersister\ArticleDataPersister" class="App\DataPersister\ArticleDataPersister" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentRepository" class="App\Repository\CommentRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CommentRepository" class="App\Repository\CommentRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.Kbr2i2X" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4917,10 +4923,11 @@
         <argument key="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber" type="service" id="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.QPFo7No" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.f_eT530" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ArticleRepository" type="service" id="App\Repository\ArticleRepository"/>
+        <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
         <argument key="App\Repository\CommentRepository" type="service" id="App\Repository\CommentRepository"/>
       </argument>
     </service>

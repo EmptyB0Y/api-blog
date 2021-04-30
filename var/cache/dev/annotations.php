@@ -85,6 +85,10 @@ return [[
 '%5B%5BC%5DApp%5CEntity%5CArticle%23addComment%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CArticle%23removeComment%5D%5B1%5D' => 1,
 '%5B%5BC%5DApp%5CEntity%5CArticle%23removeComment%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CArticle%23getCategory%5D%5B1%5D' => 1,
+'%5B%5BC%5DApp%5CEntity%5CArticle%23getCategory%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CArticle%23setCategory%5D%5B1%5D' => 1,
+'%5B%5BC%5DApp%5CEntity%5CArticle%23setCategory%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CArticle%24id%5D%5B1%5D' => 4,
 '%5B%5BC%5DApp%5CEntity%5CArticle%24id%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CArticle%24title%5D%5B1%5D' => 5,
@@ -95,6 +99,8 @@ return [[
 '%5B%5BC%5DApp%5CEntity%5CArticle%24content%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CArticle%24comments%5D%5B1%5D' => 8,
 '%5B%5BC%5DApp%5CEntity%5CArticle%24comments%5D%5B1%5D' => 2,
+'%5BApp%5CEntity%5CArticle%24category%5D%5B1%5D' => 9,
+'%5B%5BC%5DApp%5CEntity%5CArticle%24category%5D%5B1%5D' => 2,
 '%5BDoctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController%5D%5B1%5D' => 1,
 '%5B%5BC%5DDoctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController%5D%5B1%5D' => 2,
 '%5BDoctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController%23setContainer%5D%5B1%5D' => 1,
@@ -566,7 +572,7 @@ return [[
 
 0 => 'N;',
 1 => [],
-2 => 1619805886,
+2 => 1619822410,
 3 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -745,7 +751,7 @@ return [[
             'Symfony\\Component\\Serializer\\Annotation\\Groups' => [
                 'groups' => [
                     1 => [
-                        'article:read',
+                        'comment:write',
                     ],
                 ],
             ],
@@ -753,6 +759,44 @@ return [[
         [
             $o[0],
             $o[1],
+        ],
+        []
+    );
+},
+9 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ManyToOne'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToOne')),
+            clone ($p['Doctrine\\ORM\\Mapping\\JoinColumn'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\JoinColumn')),
+            clone ($p['Symfony\\Component\\Serializer\\Annotation\\Groups'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Annotation\\Groups')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'targetEntity' => [
+                    'App\\Entity\\Category',
+                ],
+                'inversedBy' => [
+                    'articles',
+                ],
+                'nullable' => [
+                    1 => false,
+                ],
+            ],
+            'Symfony\\Component\\Serializer\\Annotation\\Groups' => [
+                'groups' => [
+                    2 => [
+                        'article:write',
+                        'article:read',
+                        'category:read',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+            $o[1],
+            $o[2],
         ],
         []
     );
