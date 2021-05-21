@@ -136,6 +136,6 @@ class __TwigTemplate_ae632373712a4ad48a9d55f343dead05cc4876324400b9f51fbb9094062
     </ul>
 </div>
 {% endblock %}
-", "login_failure/index.html.twig", "/home/h0rn3t/api_test/templates/login_failure/index.html.twig");
+", "login_failure/index.html.twig", "/home/h0rn3t/api_blog/templates/login_failure/index.html.twig");
     }
 }

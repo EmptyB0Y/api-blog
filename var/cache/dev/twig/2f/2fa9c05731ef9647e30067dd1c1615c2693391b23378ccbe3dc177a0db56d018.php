@@ -1134,6 +1134,6 @@ class __TwigTemplate_7be61bde3c332caa0232766f70e412085ba26901db866e3cbb5eda8cb22
 
 </body>
 </html>
-", "@ApiPlatform/GraphQlPlayground/index.html.twig", "/home/h0rn3t/api_test/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/GraphQlPlayground/index.html.twig");
+", "@ApiPlatform/GraphQlPlayground/index.html.twig", "/home/h0rn3t/api_blog/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/GraphQlPlayground/index.html.twig");
     }
 }

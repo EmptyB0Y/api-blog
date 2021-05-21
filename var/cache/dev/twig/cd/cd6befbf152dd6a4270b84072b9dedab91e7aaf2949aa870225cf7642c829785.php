@@ -133,6 +133,6 @@ class __TwigTemplate_558ff8e159398e8f0ae95e1b055be86f9df9498618b3c401066b7414dbe
 
 </body>
 </html>
-", "@ApiPlatform/Graphiql/index.html.twig", "/home/h0rn3t/api_test/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
+", "@ApiPlatform/Graphiql/index.html.twig", "/home/h0rn3t/api_blog/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
     }
 }

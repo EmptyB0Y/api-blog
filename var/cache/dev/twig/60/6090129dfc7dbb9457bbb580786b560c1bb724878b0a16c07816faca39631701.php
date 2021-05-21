@@ -161,6 +161,6 @@ class __TwigTemplate_98a88682de7e3f66aee6b9f10322a216f05fa3b329b517851d17fac01b2
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/home/h0rn3t/api_test/templates/base.html.twig");
+", "base.html.twig", "/home/h0rn3t/api_blog/templates/base.html.twig");
     }
 }
